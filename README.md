@@ -30,7 +30,7 @@ Twitter-Based Product / Sales Events Recommender
 
 ###Awmazon Web Service : Product Query
    **repositery: AWSquery/<br>**
-   Please refer to the function call in AWSquery/test.java<br>
+   You will need to fill in your own *AWS_ACCESS_KEY_ID*, *AWS_SECRET_KEY*, and *ASSOCIATE_TAG* in **AWSquwry/ItemSearch.java**. To query products, please refer to the function call in **AWSquery/test.java**<br>
    The returned file is stored as: { {name1}, {URL1}, {name2}, {URL2}, {name3}, {URL3} }
 
 
