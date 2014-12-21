@@ -3,7 +3,7 @@ Twitter-Based Product / Sales Events Recommender
 ###Retail Group
 ## General Purpose
 *  Discover potential demand on products on social network (**Twitter**)
-   *  Provide a reciprocal platform to benefit retailers and customers
+*  Provide a reciprocal platform to benefit retailers and customers
 
 ## Work Process
 ###Costumers
@@ -13,6 +13,7 @@ Twitter-Based Product / Sales Events Recommender
    4.  Reply user with URL of recommended products on Amazon
    5.  User gives rating on recommended products
    6.  Do user-based recommendation based on ratings on our website
+
 ###Retailers
    1.  Retailor offers information about products and sales events
    2.  Check ratings for products from our users
@@ -32,5 +33,4 @@ Twitter-Based Product / Sales Events Recommender
    **repositery: AWSquery/<br>**
    You will need to fill in your own *AWS_ACCESS_KEY_ID*, *AWS_SECRET_KEY*, and *ASSOCIATE_TAG* in **AWSquwry/ItemSearch.java**. To query products, please refer to the function call in **AWSquery/test.java**<br>
    The returned file is stored as: { {name1}, {URL1}, {name2}, {URL2}, {name3}, {URL3} }
-
 
