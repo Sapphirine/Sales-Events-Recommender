@@ -1,0 +1,221 @@
+html,
+#map-canvas {
+	/*height: 650px;*/
+	/*width: 100%;
+	margin: 2px;
+	padding: 10px 20px 20px;*/
+	display:block;
+	position:absolute;
+	height:auto;
+	bottom:0;
+	top:0;
+	left:0;
+	right:0;
+	margin-left:0px; /* Set margin to your navbar height */
+
+} 			     
+
+
+body
+{
+	background-color: #e8e8e8;
+	background-image: url('images/bg01.png');
+}
+  
+h1
+{
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: #232323;
+}
+strong, b
+{
+	font-weight: 700;
+	color: #232323;
+}
+
+/*********************************************************************************/
+/* Sidebar                                                                       */
+/*********************************************************************************/
+
+#sidebar
+{
+	float: left;
+	left: 0px;
+	position: relative;
+	width: 220px;
+			
+	color: #aaa;
+	color: rgba(255,255,255,0.55);
+	text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
+}
+#sidebar form input,
+#sidebar form select,
+#sidebar form textarea
+{
+	border: 0;
+}
+
+#sidebar nav
+{
+	position: relative;
+}
+
+#sidebar nav:before
+{
+	content: '';
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: #171E29;
+	border-color: rgba(0,0,0,0.25);
+	box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
+	display: block;
+}
+#sidebar nav:after
+{
+	margin-top: 15px;
+	content: '';
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: #171E29;
+	border-color: rgba(0,0,0,0.25);
+	box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
+	display: block;
+}
+#but:before
+{
+	margin-top: 10px;
+	margin-bottom: 15px;
+	content: '';
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: #171E29;
+	border-color: rgba(0,0,0,0.25);
+	box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.075), 0px 1px 0px 0px rgba(255,255,255,0.075);
+	display: block;
+}
+
+#sidebar a
+{
+	color: #d4dde0;
+}
+	
+#sidebar nav
+{
+	margin: 2em 0 0 0;
+	font-size: 0.9em;
+}
+	
+#sidebar nav:before
+{
+	height: 0.5em;
+	margin: 0 0 2em 0;
+}
+		
+#content
+{
+	position: relative;
+	background-color: #fff;
+	background-image: url('images/bg02.png');
+}
+	
+#content
+{
+	box-shadow: 0 0 0.25em 0em rgba(0,0,0,0.25);
+}
+
+#content > .inner
+{
+	/*
+	This sets an upper limit on your page content to prevent it
+	from looking insane on really wide displays. It's currently set
+	to the width of the sample post images, but you can change it to
+	whatever you like (or remove it entirely).
+	*/
+	max-width: 1038px;
+	padding-bottom: 2em;
+}
+			
+			
+			
+/*********************************************************************************/
+/* Table                                                                         */
+/*********************************************************************************/
+table
+{
+	width: 100%;
+}
+		
+table.default
+{
+}
+		
+table.default tbody tr:nth-child(2n+2)
+{
+	background: #f4f4f4;
+}
+			
+table.default td
+{
+	padding: 0.5em 1em 0.5em 1em;
+}
+			
+table.default th
+{
+	text-align: left;
+	font-weight: 700;
+	padding: 0.75em 1em 0.75em 1em;
+}
+		
+table.default thead
+{
+	border-bottom: solid 1px #ddd;
+}
+			
+table.default tfoot
+{
+	border-top: solid 1px #ddd;
+	background: #eee;
+}
+			
+table.default tbody
+{
+}
+				
+				
+			
+		
+#logo
+{
+
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	font-size: 2em;
+	letter-spacing: 0.1em;
+}
+	
+#logo a
+{
+	display: block;
+	background-color: #c94663;
+	background-image: url('images/bg01.png');
+	padding: 0.875em 0.25em;
+	border-radius: 0.2em;
+	box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+	text-decoration: none;
+	color: #fff;
+}
+#map-canvas {
+	display:block;
+	position:absolute;
+	height:auto;
+	bottom:0;
+	top:0;
+	left:0;
+	right:0;
+	margin-left:225px; /* Set margin to your navbar height */
+	font-family: Arial;
+	font-size: 16px;
+}
+ 		
+	  	

@@ -1,0 +1,60 @@
+<br><br><h1 style="text-align: center">Welcome to Recommend2U, {{user}}<span class="glyphicon glyphicon-glass"></span></h1><br><br>
+<div class="form-group">
+    <div class="container">
+    <input type="text" ng-model="event.category" style="width:300px;margin:0 auto;" class="form-control" placeholder="Please enter key words here...">
+    <br><br>
+    <p style="text-align:center">
+    	<button class="btn" ng-click="searchEvents()"><span class="glyphicon glyphicon-search"></span>Search</button>
+    </p>
+    <br><br><br>
+
+    
+   	<div class="text-center">        
+        <button class="btn btn-success" ng-click="getRecommend(user); recommendShow=true">
+        <span class="glyphicon glyphicon-glass"></span> Get Recommendations!
+    	</button>
+    </div>
+    	
+    </div>
+
+<div class="container" ng-show="recommendShow">
+    <h3 style="text-align: left">Recommendation List</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Product ID/SKU</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Score</th>
+            <th>Price</th>
+            <th>Retailer</th>
+            <th>like</th>
+            <th>write a review!</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="x in recommend_product_info">
+            <td>{{x.product_id}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.description}}</td>
+            <td>{{x.category}}</td>
+            <td>{{x.score}}</td>
+            <td>{{x.price}}</td>
+            <td>{{x.retailer}}</td>
+            <td><button class="btn" ng-click="addLike(x.product_id)">
+                <span class="glyphicon glyphicon-heart"></span> like
+            </button></td>
+            <td><button class="btn" ng-click="reviewShow=true">
+                <span class="glyphicon glyphicon-cloud"></span> write a review
+            </button></td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <div ng-show="reviewShow">
+    
+    </div>
+    
+</div>
+</div>

@@ -1,0 +1,7 @@
+<?php
+
+$CONSUMER_KEY='K7uYNbLYf5LTS6BZvpEjEcZYM';
+$CONSUMER_SECRET='97ZI4HycXWN1kgEX23v0omyV9FLav6k5vYPHWcrhxOOdBUfzcd';
+$OAUTH_CALLBACK='http://127.0.0.1:8080/Recommend2U/index.html';
+
+?>

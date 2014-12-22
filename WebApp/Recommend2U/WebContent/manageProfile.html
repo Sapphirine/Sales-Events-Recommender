@@ -1,0 +1,19 @@
+<form class="form-horizontal" role="form">
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Your Name (Can not change): </label>
+            <input type="text" style="width:400px;margin:0;" class="form-control" ng-model="retailer" readonly>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Your Password: </label>
+            <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="retailer_new_password" placeholder="your password">
+        </div>
+    </div>
+</form>
+<div class="text-center">
+	<button class="btn" ng-click="updateRetailer(retailer, retailer_new_password)">
+	<span class="glyphicon glyphicon-pencil"></span> Submit </button><br><br>
+	<p>{{updateRetailerMessage}}</p>
+</div>

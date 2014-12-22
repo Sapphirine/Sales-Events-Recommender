@@ -1,0 +1,28 @@
+
+<br><br><h1 style="text-align: center">Welcome to Recommend2U, {{retailer}}<span class="glyphicon glyphicon-glass"></span></h1><br><br>
+<div class="container" style="text-align: center">
+    <button class="btn btn-link" ng-click="postEventShow=true; postHistoryShow=false; profileManagementShow=false; feedbackShow=false" style=" width:200px;margin:0 auto;text-align: left">
+        <span class="glyphicon glyphicon-pencil"></span> Post Products/Events
+    </button><br>
+    <button class="btn btn-link" ng-click="retrievePost(retailer); postEventShow=false; postHistoryShow=true; profileManagementShow=false; feedbackShow=false" style="width:200px;margin:0; text-align: left">
+        <span class="glyphicon glyphicon-th-list"></span> Post History
+    </button><br>
+    <button class="btn btn-link" ng-click="postEventShow=false; postHistoryShow=false; profileManagementShow=true; feedbackShow=false" style="width:200px;margin:0; text-align: left">
+        <span class="glyphicon glyphicon-th-list"></span> Profile Management
+    </button><br>
+    <button class="btn btn-link" ng-click="postEventShow=false; postHistoryShow=false; profileManagementShow=false; feedbackShow=true;" style="width:200px;margin:0; text-align: left">
+        <span class="glyphicon glyphicon-th-list"></span> Feedback
+    </button><br>
+</div><hr>
+
+<!--post products-->
+<div ng-show="postEventShow" ng-include="'postProduct.html'" class="jumbotron; container"></div>
+
+<!--post history-->
+<div ng-show="postHistoryShow" ng-include="'postHistory.html'" class="jumbotron; container"></div>
+
+<!--<!--manage profile-->
+<div ng-show="profileManagementShow" ng-include="'manageProfile.html'" class="jumbotron; container"></div>
+
+<!--<!--get feedback-->
+<div ng-show="feedbackShow" ng-include="'feedback.html'" class="jumbotron; container"></div>

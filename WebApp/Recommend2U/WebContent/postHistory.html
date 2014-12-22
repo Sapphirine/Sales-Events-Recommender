@@ -1,0 +1,67 @@
+<!--product info-->
+    <h3>Product Posted</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Score</th>
+            <th>Price</th>
+            <th>Retailer</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="x in product_info">
+            <td>{{x.product_id}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.description}}</td>
+            <td>{{x.category}}</td>
+            <td>{{x.score}}</td>
+            <td>{{x.price}}</td>
+            <td>{{x.retailer}}</td>
+            <td><button class="btn" ng-click="updateShow=true">
+                <span class="glyphicon glyphicon-pencil"></span> update
+            </button></td>
+            <td><button class="btn" ng-click="deleteShow=true">
+                <span class="glyphicon glyphicon-pencil"></span> delete
+            </button></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--events info-->
+    <h3>Events Posted</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Event ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Retailer</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="y in event_info">
+            <td>{{y.event_id}}</td>
+            <td>{{y.name}}</td>
+            <td>{{y.category}}</td>
+            <td>{{y.description}}</td>
+            <td>{{y.location}}</td>
+            <td>{{y.retailer}}</td>
+            <td><button class="btn" ng-click="">
+                <span class="glyphicon glyphicon-pencil"></span> update
+            </button></td>
+            <td><button class="btn" ng-click="">
+                <span class="glyphicon glyphicon-pencil"></span> delete
+            </button></td>
+        </tr>
+        </tbody>
+    </table>

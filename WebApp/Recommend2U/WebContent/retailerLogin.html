@@ -1,0 +1,21 @@
+<h2 style="text-align: center">Retailer Login<span class="glyphicon glyphicon-home"></span></h2><br><br>
+<div class="container" style="text-align: center">
+    <form class="form-horizontal" role="form">
+        <div class="form-group; text-center">
+            <div class="row">
+                <label class="control-label">Name</label>
+                <input type="text" ng-model="retailerInfo.name" style="width:300px;" class="form-control"  placeholder="retailer name">
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Password </label>
+                <input type="password" ng-model="retailerInfo.password" style="width:300px;" class="form-control" placeholder="password">
+            </div>
+        </div>
+    </form><br>
+</div>
+<div class="text-center">
+    <button class="btn btn-default" ng-click="verifyRetailer(retailerInfo)">
+    <span class="glyphicon glyphicon-user"></span> login </button>
+ 	<p>{{retailerLoginMessage}}</p>
+</div>
+<br><br>

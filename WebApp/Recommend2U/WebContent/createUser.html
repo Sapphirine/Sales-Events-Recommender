@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>create user account</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+	<div class="container" >
+    
+        <div>
+            <h2 style="text-align:center">Your Account</h2>
+            <h3>Welcome to Recommend2U, Please complete your account information.</h3>
+            <form role="form">
+                <div class="form-group">
+                    <label>Name(can not change after registration):</label>
+                    <input type="text" class="form-control" ng-model="newUser.name">
+                </div>
+                <div class="form-group">
+                    <label>Password: </label>
+                    <input type="password" class="form-control" ng-model="newUser.password">
+                </div>
+            </form>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-info" ng-click="createUser(newUser)">Create Account
+                <span class="glyphicon glyphicon-user"></span>
+            </button>
+        </div><br>
+        
+		<p style="text-align: center"> {{createUserMessage}}</p>
+        <p style="text-align: right">
+        	<a ng-href="index.html">Go back to main page</a>
+        </p>
+    </div><br><br><br><br><br><br>
+	<script src="myApp.js"></script>
+    <script src="myController.js"></script>
+    <script src="myService.js"></script>
+</body>
+</html>

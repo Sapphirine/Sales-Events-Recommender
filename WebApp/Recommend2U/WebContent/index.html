@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <div ng-include="'navigator.html'"></div>
+    
+    <div ng-hide="userShow||retailerShow">
+    	<div ng-include="'introduction.html'"></div>
+    	<div ng-include="'login.html'"></div>
+    </div><br><br><br>
+    
+    <div ng-show="userShow" ng-include="'userMainPage.html'"></div>
+    <div ng-show="retailerShow" ng-include="'retailerMainPage.html'"></div>
+    
+    <script src="myApp.js"></script>
+    <script src="myController.js"></script>
+    <script src="myService.js"></script>
+</body>
+</html>
