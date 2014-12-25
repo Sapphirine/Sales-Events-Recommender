@@ -36,7 +36,7 @@ public class ClassWordCount {
 //		    negativeSet = new HashSet<String>();
 //		    positiveSet = new HashSet<String>();
 		    dic =  new ArrayList<String>();
-		    writer = new CSVWriter(new FileWriter("/Users/qianyizhong/Documents/beauti.csv"));
+		    writer = new CSVWriter(new FileWriter("/Users/qianyizhong/Documents/1.csv"));
 		    try {
 		        StringBuilder sb = new StringBuilder();
 		        String line = br.readLine();
@@ -258,7 +258,7 @@ public class ClassWordCount {
         while (it.hasNext()) {
         	Entry pairs = (Entry)it.next();
          //   System.out.println(pairs.getKey() + " = " + pairs.getValue());
-        	Double freq = ((double)(Integer.parseInt(pairs.getValue().toString())))/((double)(sumAll));
+        	Double freq = ((double)(Integer.parseInt(pairs.getValue().toString())+1))/((double)(sumAll+70916));
             //data.add(new String[]{(String) pairs.getKey(),pairs.getValue().toString()});
         	data.add(new String[]{(String) pairs.getKey(),freq.toString()});
             it.remove(); // avoids a ConcurrentModificationException

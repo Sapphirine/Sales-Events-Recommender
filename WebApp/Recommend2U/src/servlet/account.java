@@ -48,6 +48,8 @@ public class account {
 		for(int i=0;i<result_set.length;i++){
 			System.out.println(result_set[i].getString("password"));
 		}
+		String name=null;
+		Double id=null;
 		// verify password
 		boolean success_value=false;
 		if(result_set.length!=0){
@@ -55,10 +57,16 @@ public class account {
 			JSONObject obj=new JSONObject(user_information);
 			String password_fr=obj.getString("password");
 			success_value=(password_db.equals(password_fr));
+			name=obj.getString("name");
+			// get id of user
+			System.out.println(result_set[0]);
+			id=(double)result_set[0].get("user_id");
 		}
 		// encode
 		JSONObject data=new JSONObject();
 		data.put("success", success_value);
+		data.put("name", name);
+		data.put("user_id", id);
 		return javax.ws.rs.core.Response.ok().entity(data).build();
 	}
 	

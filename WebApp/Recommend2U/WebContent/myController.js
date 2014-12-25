@@ -5,38 +5,60 @@ app.controller("myController", function($scope, $http, $location, $window, mySer
 
 	$scope.user="test user";
 	$scope.retailer="test retailer";
+	$scope.userName="test user name";
 	$scope.createUserMessage="";
 	$scope.createRetailerMessage="";
 	$scope.recommend_product_info=[];
 
-	/*******************************************************************************************************/
-	
-	$scope.retrievePost=function(retailer_name){
-		
-		// reload values
-		$scope.product_info;
-		$scope.event_info;
+	/*************************************************user service******************************************************/
+	$scope.searchProducts=function(key_words){
+//		alert(key_words);
+		var config={params:{keyWords:key_words}};
+        var response=$http.get('/Recommend2U/CRM/user/searchProduct', config);
+        response.success(function(data,statuc,headers,config){
+        	$scope.searchResult=data.products;
+        	//alert(data.products[0].product_id);
+        	$scope.searchResultShow=true;
+//        	alert($scope.searchResult.length);
+        });
 	};
 	
-	$scope.getRecommend=function(user_id){
-		
-	    /*$scope.recommend_product_info=[
-	                                   {product_id: "B000K5JBZU", name: "Optimum Care Anti-Breakage Therapy Moisture Replenish Cream Hairdress",
-	                                       description: "Optimum Care Anti-Breakage Therapy features Oleo Ceramide Technology with reparative cermaide,strengthening panthenol and protein.It's proven to penetrate chemically relaxed,natural or color treated hair instantly,rebuilding damaged internal structure for more than 100% stronger hair after just 1 use.Moisture Replenish Cream Hairdress infuses moisture into fragile hair,shielding it with a long lasting barrier against dryness for increased manageability and healthy looking style.",
-	                                       category: 'Home', score: 4.0, price: 30.00, retailer: "host"},
-	                                   {product_id: "B00064C0IU", name: "Oscar Eau de Toilette for Women by Oscar de La Renta",
-	                                       description: "Introduced in 2009, this perfume has a distinct and excellent fragrance.Whenapplyingany fragrance please consider that there are several factors which can affect the natural smell of your skin and, in turn, the way a scent smells on you. For instance, your mood, stress level, age, body chemistry,diet, and current medications may all alter the scents you wear.Similarly, factor such as dry or oilyskin can even affect the amount of time a fragrance will last after being applied",
-	                                       category: "Home", score: 4.0, price: 24.19, retailer: "host"},
-	                                   {product_id: "B000G35MR2", name: "Liz Claiborne Curve Eau de Toilette Spray",
-	                                       description: 'NA',
-	                                       category: "Home", score: 4.5, price: 14.99, retailer: "host"}
-	                               ];*/
+	$scope.getHistory=function(user_name){
+		//alert(user_name);
+		var config={params:{user_name:user_name}};
+        var response=$http.get('/Recommend2U/CRM/user/getHistory', config);
+        response.success(function(data,statuc,headers,config){
+        	$scope.history_product=data.products;
+        	//alert(data.products.length);
+        	$scope.historyShow=true;
+        	// alert($scope.searchResult.length);
+        });
 	};
 	
-	$scope.addLike=function(product_id){
-		
+	$scope.addLike=function(product_id){};
+	$scope.writeReview=function(){};
+	
+	$scope.getRecommend=function(user_name){
+		//alert(user_name);
+		var config={params:{user_name: user_name}};
+        var response=$http.get('/Recommend2U/CRM/user/getRecommend', config);
+        response.success(function(data,statuc,headers,config){
+        	$scope.recommend_product_info=data.products;
+//        	$scope.recommend_product_info=data.products;
+        	//alert($scope.recommend_product_info.length);
+        });
 	};
-	/*******************************************************************************************************/
+
+	/******************************************************* retailer service *****************************************************/
+	
+	
+	$scope.postProduct = function(product_info){
+//		alert(product_info.retailer);
+		var response=$http.post("/Recommend2U/CRM/retailer/postProduct", product_info);
+		response.success(function(data,status,headers,config){
+			
+		});
+	};
 	
 	$scope.updateRetailer=function(name, password){
 		$scope.updateRetailer={};
@@ -54,6 +76,22 @@ app.controller("myController", function($scope, $http, $location, $window, mySer
 		});
 	};
 	
+	$scope.retrievePost=function(retailer_name){
+		
+		var config={params:{retailer: retailer_name}};
+        var response=$http.get('/Recommend2U/CRM/retailer/retrievePost', config);
+        response.success(function(data,statuc,headers,config){
+//        	alert("received by controller: " + data.result.length);
+        	$scope.product_info=data.result;
+//    		$scope.event_info;
+//        	$scope.searchResultShow=true;
+//        	alert($scope.product_info.length);
+        });
+	};
+	
+	
+	
+	/**************************************************  account operation  ****************************************************/
 	$scope.callToSetUser=function(user_name){
 		myService.setUser(user_name);
 	};
@@ -90,11 +128,24 @@ app.controller("myController", function($scope, $http, $location, $window, mySer
     	$scope.userShow=false;
     	$scope.retailerShow=true;
     };
+    
+    $scope.setUserName=function(name){
+    	$scope.userName=name;
+    };
+    
+    $scope.setUserID=function(id){
+    	$scope.user=id;
+    };
+    
+    // user login 
     $scope.verifyUser=function(user, $location, $window){
     	$scope.user=user.name;
     	var response=$http.post("/Recommend2U/CRM/account/verifyUser", user);
     	response.success(function(data, status, headers, config){
+//    		alert("data.success: " + data.success);
     		if(data.success){
+    			$scope.setUserName(data.name);
+    			$scope.setUserID(data.user_id);
     			$scope.userLoginMessage="Login succeeded! Thanks!";   
     			$scope.setUserShow();
     			//$scope.go("http://localhost:8080/Recommend2U/userMainPage.html");
@@ -105,11 +156,8 @@ app.controller("myController", function($scope, $http, $location, $window, mySer
     		}	
     	});
     };
- 
-    $scope.go = function(url) {
-    	location.href = url;
-    };
 
+    // retailer login
     $scope.verifyRetailer=function(retailer){
     	$scope.retailer=retailer.name;
     	$scope.retailerLoginMessage="";
@@ -126,30 +174,30 @@ app.controller("myController", function($scope, $http, $location, $window, mySer
     		}	
     	});
     };
-    
-    $scope.product_info=[
-        {product_id: "B0000630MB", name: "Sassy Baby Warming Dish, Colors May Vary",
-            description: "Sassy baby Warming Dish has a spout to add warm water under plate to keep food warm during meal time. Can be used as a suctioned dish, or separately as a large bowl. Comes in assorted colors and is dishwasher safe.The Warming Dish offers an easy way to keep baby's food warm without cords or plugs. Add warm water through spout to keep food warm during mealtime. Warming dish can be used as a sectioned dish or separately for a large bowl. Suction base keeps Warming Dish securely in place.",
-            category: 'Home', score: 5.0, price: 10.00, retailer: "host"},
-        {product_id: "B00064C0IU", name: "Oscar Eau de Toilette for Women by Oscar de La Renta",
-            description: "Introduced in 2009, this perfume has a distinct and excellent fragrance.Whenapplyingany fragrance please consider that there are several factors which can affect the natural smell of your skin and, in turn, the way a scent smells on you. For instance, your mood, stress level, age, body chemistry,diet, and current medications may all alter the scents you wear.Similarly, factor such as dry or oilyskin can even affect the amount of time a fragrance will last after being applied",
-            category: "Home", score: 4.0, price: 24.19, retailer: "host"},
-        {product_id: "B000FKGRT8", name: "Artec Textureline Smoothing Serum, 8.4-Ounce Pump (Pack of 2)",
-            description: "Artec Textureline Smooth smoothing serum. ",
-            category: "Home", score:5.0, price: 25.00, retailer: "host"},
-        {product_id: "B000G35MR2", name: "Liz Claiborne Curve Eau de Toilette Spray",
-            description: 'NA',
-            category: "Home", score: 4.5, price: 14.99, retailer: "host"},
-        {product_id: "B000H5WLXM", name: "ChildProTech #338 Door Knob Covers ",
-            description: "Door Knob Covers Easy To Install. 3 Each (Carded)",
-            category: 'Home', score: 4.5, price: 3.5, retailer: "host"},
-        {product_id: "B000K5JBZU", name: "Optimum Care Anti-Breakage Therapy Moisture Replenish Cream Hairdress",
-            description: "Optimum Care Anti-Breakage Therapy features Oleo Ceramide Technology with reparative cermaide,strengthening panthenol and protein.It's proven to penetrate chemically relaxed,natural or color treated hair instantly,rebuilding damaged internal structure for more than 100% stronger hair after just 1 use.Moisture Replenish Cream Hairdress infuses moisture into fragile hair,shielding it with a long lasting barrier against dryness for increased manageability and healthy looking style.",
-            category: 'Home', score: 4.0, price: 30.00, retailer: "host"},
-        {product_id: "B000MATPVI", name: "Swazi - Picture Frame",
-            description: "NA",
-            category: 'Home', score: 3.5, price: 6.71, retailer: "host"}
-    ];
+//    
+//    $scope.product_info=[
+//        {product_id: "B0000630MB", name: "Sassy Baby Warming Dish, Colors May Vary",
+//            description: "Sassy baby Warming Dish has a spout to add warm water under plate to keep food warm during meal time. Can be used as a suctioned dish, or separately as a large bowl. Comes in assorted colors and is dishwasher safe.The Warming Dish offers an easy way to keep baby's food warm without cords or plugs. Add warm water through spout to keep food warm during mealtime. Warming dish can be used as a sectioned dish or separately for a large bowl. Suction base keeps Warming Dish securely in place.",
+//            category: 'Home', score: 5.0, price: 10.00, retailer: "host"},
+//        {product_id: "B00064C0IU", name: "Oscar Eau de Toilette for Women by Oscar de La Renta",
+//            description: "Introduced in 2009, this perfume has a distinct and excellent fragrance.Whenapplyingany fragrance please consider that there are several factors which can affect the natural smell of your skin and, in turn, the way a scent smells on you. For instance, your mood, stress level, age, body chemistry,diet, and current medications may all alter the scents you wear.Similarly, factor such as dry or oilyskin can even affect the amount of time a fragrance will last after being applied",
+//            category: "Home", score: 4.0, price: 24.19, retailer: "host"},
+//        {product_id: "B000FKGRT8", name: "Artec Textureline Smoothing Serum, 8.4-Ounce Pump (Pack of 2)",
+//            description: "Artec Textureline Smooth smoothing serum. ",
+//            category: "Home", score:5.0, price: 25.00, retailer: "host"},
+//        {product_id: "B000G35MR2", name: "Liz Claiborne Curve Eau de Toilette Spray",
+//            description: 'NA',
+//            category: "Home", score: 4.5, price: 14.99, retailer: "host"},
+//        {product_id: "B000H5WLXM", name: "ChildProTech #338 Door Knob Covers ",
+//            description: "Door Knob Covers Easy To Install. 3 Each (Carded)",
+//            category: 'Home', score: 4.5, price: 3.5, retailer: "host"},
+//        {product_id: "B000K5JBZU", name: "Optimum Care Anti-Breakage Therapy Moisture Replenish Cream Hairdress",
+//            description: "Optimum Care Anti-Breakage Therapy features Oleo Ceramide Technology with reparative cermaide,strengthening panthenol and protein.It's proven to penetrate chemically relaxed,natural or color treated hair instantly,rebuilding damaged internal structure for more than 100% stronger hair after just 1 use.Moisture Replenish Cream Hairdress infuses moisture into fragile hair,shielding it with a long lasting barrier against dryness for increased manageability and healthy looking style.",
+//            category: 'Home', score: 4.0, price: 30.00, retailer: "host"},
+//        {product_id: "B000MATPVI", name: "Swazi - Picture Frame",
+//            description: "NA",
+//            category: 'Home', score: 3.5, price: 6.71, retailer: "host"}
+//    ];
 
 
 

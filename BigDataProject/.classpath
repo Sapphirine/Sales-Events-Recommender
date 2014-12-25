@@ -63,5 +63,17 @@
 	<classpathentry kind="lib" path="/Users/qianyizhong/Desktop/berkeleyparser-r32.jar"/>
 	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/ark-tweet-nlp-0.3.2/ark-tweet-nlp-0.3.2.jar"/>
 	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/mysql-connector-java-5.1.34-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/commons-logging-api-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Documents/workspace/CloudFinal/WebContent/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/hadoop-test-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/hadoop-core-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/hadoop-client-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/jackson-core-asl-1.8.8.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/mahout-trunk/examples/target/dependency/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/jackson-mapper-asl-1.9.1.jar"/>
+	<classpathentry kind="lib" path="/Users/qianyizhong/Downloads/opencsv-2.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

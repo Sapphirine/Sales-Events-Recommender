@@ -8,6 +8,7 @@ public class App extends Application {
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.add(retailer.class);
+		classes.add(user.class);
 		classes.add(account.class);
 		return classes;
 	}

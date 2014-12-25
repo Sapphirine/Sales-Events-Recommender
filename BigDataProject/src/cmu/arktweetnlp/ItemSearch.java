@@ -18,9 +18,11 @@ import org.w3c.dom.Node;
  * configuring and running the sample.
  */
 public class ItemSearch {
-
-    private static final String AWS_ACCESS_KEY_ID = "AKIAJO7HUEJZDB6ZFIEA";
-    private static final String AWS_SECRET_KEY = "x+6GUE/Bqpg66EqLv5j7QkW8g6tW0tI6j9lwZaTE";
+    
+/* use your own AWS credential here*************/
+    
+    private static final String AWS_ACCESS_KEY_ID = "";
+    private static final String AWS_SECRET_KEY = "";
     private static final String ASSOCIATE_TAG = "bigdataprojec-20";
     private static final String ENDPOINT = "webservices.amazon.com";
     
@@ -44,8 +46,10 @@ public class ItemSearch {
                 Node titleNode = doc.getElementsByTagName("Title").item(i);
                 title = titleNode.getTextContent();
                 //item url
-                Node urlNode = doc.getElementsByTagName("DetailPageURL").item(i);
-                url = urlNode.getTextContent();
+                //Node urlNode = doc.getElementsByTagName("DetailPageURL").item(i);
+                //url = urlNode.getTextContent();
+                Node itemID = doc.getElementsByTagName("ASIN").item(i);
+                url = "http://amzn.com/" + itemID.getTextContent();
                 //content.put("name", title);
                 //content.put("url", url);
                 list.add(title);
@@ -79,7 +83,7 @@ public class ItemSearch {
         
         Map<String, String> params = new HashMap<String, String>();
         params.put("Service", "AWSECommerceService");
-        params.put("Version", "2009-03-31");
+        //params.put("Version", "2009-03-31");
         params.put("Operation", "ItemSearch");
         params.put("SignatureMethod", "HmacSHA256");
         params.put("SignatureVersion", "2");
@@ -94,7 +98,7 @@ public class ItemSearch {
         ArrayList<String> result = new ArrayList<String>();
 
         requestUrl = helper.sign(params);
-        //System.out.println("Signed Request is \"" + requestUrl + "\"");
+        System.out.println("Signed Request is \"" + requestUrl + "\"");
         result = fetchContent(requestUrl);
         //System.out.println("Signed Title is \"" + title + "\"");
         //System.out.println();

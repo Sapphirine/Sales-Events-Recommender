@@ -3,25 +3,26 @@
         <div class="row">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Name: </label>
-                <input type="text" style="width:400px;margin:0;" class="form-control" ng-model="new.name" placeholder="product name...">
+                <input type="text" style="width:400px;margin:0;" class="form-control" ng-model="new1.name" placeholder="product name...">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Description: </label>
-                <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="new.description" placeholder="product description...">
+                <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="new1.description" placeholder="product description...">
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Category: </label>
-                <select style="width:200px;margin:0;" class="form-control" ng-model="new.category" placeholder="product category...">
-                    <option value="Electronic, computer">Electronic, computer</option>
-                    <option value="Home">Home</option>
-                    <option value="Clothing">Clothing</option>
-                    <option value="Shoe">Shoe</option>
-                    <option value="Sports">Sports</option>
+                <select style="width:200px;margin:0;" class="form-control" ng-model="new1.category" placeholder="product category...">
+                    <option value="Beauty">Beauty</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Apparel">Apparel</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Toys">Toys</option>
+                    
                 </select>
             </div>
         </div>
@@ -29,20 +30,20 @@
         <div class="row">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Price: </label>
-                <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="new.price" placeholder="product price...">
+                <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="new1.price" placeholder="product price...">
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="col-sm-2 control-label">Retailer: </label>
-                <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="new.retailer" placeholder="product retailer...">
+                <input type="text" style="width:200px;margin:0;" class="form-control" ng-model="retailer" readonly>
             </div>
         </div>
     </form>
 
 
 
-    <p style="text-align: center"><button class="btn btn-success" ng-click="">Submit</button></p>
+    <p style="text-align: center"><button class="btn btn-success" ng-click="new1.retailer=retailer ;postProduct(new1)">Submit</button></p>
 
     <h3>Post Event</h3>
     <form class="form-horizontal" role="form">

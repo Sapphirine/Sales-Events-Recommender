@@ -10,8 +10,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myController">
-    <div ng-include="'navigator.html'"></div>
-    
+<!-- {{user}}-->    
+	<div ng-include="'navigator.html'"></div>
     <div ng-hide="userShow||retailerShow">
     	<div ng-include="'introduction.html'"></div>
     	<div ng-include="'login.html'"></div>
