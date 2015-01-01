@@ -373,7 +373,7 @@ public final class GetFollowersIDs {
                     	Long checkTwitterId = status.getId();
                     	Long cTwiIdRplyId = status.getInReplyToStatusId();
                     	
-                    	String sentiText= "I am happy with this cookie";
+                    //	String sentiText= "I am happy with this cookie";
                     	
                     	File f = new File("/Users/qianyizhong/Documents/workspace/BigDataProject/input/1.txt");
                     	boolean success = f.delete();
