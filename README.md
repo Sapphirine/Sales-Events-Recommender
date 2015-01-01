@@ -1,6 +1,12 @@
 Twitter-Based Product / Sales Events Recommender
 ========================
 
+
+
+The entry program of the whole project is /BigDataProject/src/cmu/arktweetnlp/GetFollowersIDs.java
+
+
+
 ## General Purpose
 *  Discover potential demand on products on social network (**Twitter**)
 *  Provide a reciprocal platform to benefit retailers and customers
